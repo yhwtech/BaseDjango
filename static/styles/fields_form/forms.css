@@ -1,0 +1,27 @@
+.form-container{
+    width: clamp(80%, 80%, 100%);
+}
+.section-form{
+    border:1px solid var(--color-gris-placeholder);
+    .title-section{
+      background-color: var(--secondary-color-variant-2);
+      color: white;
+      padding: 1rem;
+      font-weight: 200;
+
+    }
+    .body-section{
+        padding:1rem;
+    }
+
+}
+.msg-error{
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color:var(--warn-color);
+    background-color: var(--warn-color-background);
+    border-radius: 5px;
+}
+.form-checkbox{
+       color: var(--text-color-gris-2);
+}

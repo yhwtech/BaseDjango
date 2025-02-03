@@ -1,0 +1,93 @@
+.btn{
+    padding-inline: 1rem;
+    padding-block: 0.25rem;
+    background-color: transparent;
+    border-radius: 5px;
+    font-family: var(--font-family-primary), sans-serif;
+    border: 1px solid var(--color-gris-placeholder);
+    color: var(--text-color-gris-2);
+    & a{
+        text-decoration: none;
+        color: var(--text-color-gris-2);
+    }
+    &:hover{
+         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    &:active{
+         transform:scale(1.05);
+    }
+    &.primary{
+        border:none;
+        background-color: var(--primary-color);
+        color: white;
+
+    }
+    &.secondary{
+        border:none;
+        background-color: var(--secondary-color-variant-1);
+        color: var(--secondary-color-variant-2);
+    }
+    &.bigger{
+        padding-inline: 5rem;
+    }
+    &.cancel{
+        color: var(--warn-color);
+        border:none;
+        &:hover{
+            background-color: var(--warn-color-background-2);
+            box-shadow:none;
+        }
+    }
+    &.outlined{
+        border: none;
+        background-color: transparent;
+    }
+    &:disabled{
+        background-color: var(--text-color-gris-5);
+        color: var(--text-color-gris-2);
+        cursor: not-allowed;
+        border: none;
+        opacity: 0.6;
+    }
+}
+.link{
+    text-decoration: none;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--secondary-color-variant-1);
+    color: var(--text-color-gris-2);
+    &:hover{
+           box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+}
+.link.active-link{
+     background-color: var(--primary-color-variant-1);
+     color: var(--text-color-gris-5);
+}
+.active-link{
+     background-color: var(--primary-color-variant-1);
+     color: var(--text-color-gris-5);
+}
+.title-card{
+    width:calc(100%);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.container-link{
+       width: 100%;
+         a {
+            text-decoration: none;
+            color: var(--text-color-gris-2);
+             .card-link{
+             box-shadow: 1px 1px 2px 2px var(--text-color-gris-4);
+             border-radius: 15px;
+             padding-inline: 2rem;
+             padding-block: 1rem;
+
+        }
+         }
+
+
+    }

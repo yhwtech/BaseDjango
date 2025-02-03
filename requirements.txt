@@ -2,3 +2,5 @@ django==5.1.2
 django-tenant-schemas==1.12.0
 django-environ==0.11.2
 django-jazzmin==3.0.1
+django-widget-tweaks==1.5.0
+django-static-fontawesome==6.5.2.0

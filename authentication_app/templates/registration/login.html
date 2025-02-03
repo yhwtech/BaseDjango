@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/login/login.css' %}">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+    <title>Sign in & Sign up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="" class="sign-in-form" method="POST">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            <h2 class="title">Inicio de sesión</h2>
+            <div class="input-field">
+              <div class="icon-login">
+                <span class="material-symbols-outlined">badge</span>
+              </div>
+
+              <input name="username" type="text" placeholder="Usuario" />
+            </div>
+            <div class="input-field">
+              <div class="icon-login">
+                 <span class="material-symbols-outlined">key</span>
+              </div>
+
+              <input name="password" type="password" placeholder="Contraseña" />
+            </div>
+            <input type="submit" value="Ingresar" class="btn solid" />
+
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Registro</h2>
+            <div class="input-field">
+              <img style="margin: auto auto" src="{% static 'icons/person.svg' %}" alt="person">
+              <input type="text" placeholder="Nombre" />
+            </div>
+            <div class="input-field">
+               <img style="margin: auto auto" src="{% static 'icons/mail.svg' %}" alt="mail">
+              <input type="email" placeholder="Email" />
+            </div>
+              <div class="input-field">
+                <img style="margin: auto auto" src="{% static 'icons/call.svg' %}" alt="tel">
+              <input type="tel" placeholder="Telefono" />
+            </div>
+            <input type="submit" class="btn" value="Contactanos" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>¿Te gustaría conocer nuestros servicios?</h3>
+            <p>
+              ¡Contáctanos y te proporcionaremos toda la información que necesites!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Contactar
+            </button>
+          </div>
+          <img src="{% static 'svg/log.svg' %}" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Tienes una cuenta ?</h3>
+            <p>
+             Si ya usas nuestros servicios, inicia sesión para continuar.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Iniciar sessión
+            </button>
+          </div>
+          <img src="{% static 'svg/register.svg' %}" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/login/login.js' %}"></script>
+  </body>
+</html>

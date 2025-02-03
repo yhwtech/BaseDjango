@@ -1,0 +1,54 @@
+
+.field-input,
+.field-form{
+    position: relative;
+    input, textarea{
+        padding: 0.5rem 0.5rem;
+        width: 100%;
+        border: 1px solid var(--text-color-gris-4);
+        border-radius: 5px;
+        font-size: 1rem;
+        outline: none;
+    }
+    input::placeholder, textarea::placeholder{
+        paint-order: none;
+        color: var( --color-gris-placeholder);
+        font-size: 0.9rem;
+    }
+    label{
+        paint-order: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        color: transparent;
+    }
+    input:active ,input:focus, textarea:active ,textarea:focus{
+        border-width: 2px;
+        border-color: var(--primary-color-variant-2);
+    }
+    img{
+        position: absolute;
+        bottom: calc(50% - 0.75rem);
+        right:5px;
+        cursor: pointer;
+
+    }
+     &:has(input:active) label,
+     &:has(input:focus) label,
+     &:has(input:not(:placeholder-shown)) label,
+     &:has(textarea:active) label,
+     &:has(textarea:focus) label,
+     &:has(textarea:not(:placeholder-shown)) label{
+        display: block;
+        top:0;
+        font-size:0.9rem;
+        color: var(--text-color-gris-4);
+        background: white;
+        transition: 0.25s;
+    }
+     &:has(input:focus) input::placeholder,
+     &:has(textarea:focus) textarea::placeholder{
+        color:transparent;
+}
+}

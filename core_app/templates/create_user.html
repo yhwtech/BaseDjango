@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Crear usuario</h1>
+
+
+<div class="container pb-4">
+     <div class="py-2">
+      <button class="btn secondary">
+          <a href="{% url 'gestion_user' schema_name=schema_name %}">Volver</a>
+      </button>
+     </div>
+    {% include 'registration/user_form.html' with schema_name=schema_name%}
+</div>
+{% endblock %}

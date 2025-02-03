@@ -1,1 +1,7 @@
-#Base para proyecto django multitenant
+##Base para proyecto django multitenant
+1. configurar los settings
+2. ejecutar manage.py makemigrations
+3. ejecutar manage.py migrate_schemas
+4.crear un cliente en base de datos
+5. crear superusuario python manage.py createsuperuser --username=admin luego admin@gmail.com password 1234 solo para ambientes no productivos
+

@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #5995fd;
+    --primary-color-hover: #4d84e2;
+    --primary-color-variant-1:#4481eb;
+    --primary-color-variant-2:#04befe;
+
+    --secondary-color: #A3C1DA;
+    --secondary-color-variant-1: #d1eaff;
+    --secondary-color-variant-2: #395267;
+    --text-color-gris-variant-3: #e9eff3;
+
+    --warn-color: #ff4646;
+    --warn-color-background: #ffd6d6;
+    --warn-color-background-2: #fff8f8;
+    --text-color-gris-1: #404040;
+    --text-color-gris-2: #444;
+    --text-color-gris-3: #737373;
+    --text-color-gris-4: #a6a6a6;
+    --text-color-gris-5: #dcdcdc;
+
+    --color-success: #28a745;
+    --color-warning: #FFCC00;
+
+    --color-gris-placeholder: #979797;
+    --white-space:#f0f0f0;
+
+    --size-navbar: 5rem;
+    --font-family-primary: "Poppins";
+}

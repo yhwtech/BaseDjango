@@ -1,0 +1,93 @@
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProaSync</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.min.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+</head>
+<body>
+    <header class="px-5">
+        <div class="navbar-logo">CamServ</div>
+        <div class="bars">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}" class="{% if request|is_active:'' %}active{% endif %}">Inicio</a>
+                </li>
+                 <li>
+                    <a href="#"  class="{% if request|is_active:'monitoring_proa' %}active{% endif %}" >Auditoría</a>
+                </li>
+                <li>
+                    <a href="#"  class="{% if request|is_active:'metrics' %}active{% endif %}" >Metrícas</a>
+                </li>
+                {% if request.user.is_staff %}
+                    <li>
+                         <a href="{% url 'admin:index' %}" >Admin sitio</a>
+                    </li>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                    <li>
+                         <a href="{% url 'users' %}"
+                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Usuarios</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="d-flex column-gap-2 align-items-center">
+            <div style="color:white;">
+                <em class="fa-2x fa-regular fa-bell" style="color: white" title="notificaciones"><sup  style="position: relative"><span class="circle_span">5</span></sup></em>
+            </div>
+             <div id="user_circle" class="circle_account">
+            <div style="color:black">{{ request.user.first_name|slice:":1"}}{{ request.user.last_name|slice:":1" }}</div>
+        </div>
+             <div id="modal_account" class="modal">
+            <div class="modal-content">
+                 <p>Hola, {{ request.user.first_name }}!</p>
+                 <P>{{ request.user.email }}</P>
+                 <ul>
+                    {% for group in request.user.groups.all %}
+                        {{ group.name }}
+                    {% endfor %}
+                </ul>
+                <div>
+                    <form action="{% url 'close_session' %}" method="post">
+                         {% csrf_token %}
+                        <button type="submit" class="btn secondary">Cerrar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </header>
+
+  {% block content %}
+
+  {% endblock %}
+<script src="{% static 'js/navbar/navbar.js' %}"></script>
+<script src="{% static 'js/fields_form/fields_form.js' %}"></script>
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                Swal.fire({
+                    title: '{{ message.level_tag }}',
+                    text: '{{ message }}',
+                    icon: '{{ message.tags }}',
+                    confirmButtonColor: '#4481eb'
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

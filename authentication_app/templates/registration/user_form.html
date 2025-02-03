@@ -1,0 +1,104 @@
+
+<form action="{% url 'create_user' schema_name=schema_name %}" method="POST" >
+    {% csrf_token %}
+     {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+    {% endif %}
+  <div class="row">
+    <div class="col-md-6 py-2">
+      <div class="field-input">
+        <label for="usuario">Usuario</label>
+        <input name="username"  id="usuario" type="text" placeholder="Usuario" required />
+      </div>
+    </div>
+    <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="email">Email</label>
+        <input name="email" id="email" type="text" placeholder="Email" required/>
+
+      </div>
+    </div>
+    <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="nombres">Nombre</label>
+        <input name="first_name" id="nombres" type="text" placeholder="Nombres" required/>
+      </div>
+    </div>
+    <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="apellidos">Apellidos</label>
+        <input name="last_name" id="apellidos" type="text" placeholder="Apellidos" required/>
+      </div>
+    </div>
+    <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="contraseña">Contraseña</label>
+        <input name="password1" id="contraseña" type="password" placeholder="Contraseña" required/>
+      </div>
+    </div>
+
+    <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="password2">Contraseña</label>
+        <input name="password2" id="password2" type="password" placeholder="Confirmar contraseña" required/>
+      </div>
+    </div>
+     <div class="col-md-6 py-2">
+       <div class="field-input">
+        <label for="date_joined"> Fecha ingreso</label>
+        <input name="date_joined" id="date_joined" type="datetime-local" required/>
+      </div>
+    </div>
+    <div class="col-md-6 py-2">
+       <div class="field-select">
+         <label for="group_user"> Grupo</label>
+         <select id="group_user" name="group" required>
+            {% for group in groups %}
+                <option value="{{ group.id }}">{{ group }}</option>
+            {% endfor %}
+         </select>
+      </div>
+    </div>
+    <div class="col-md-12 py-2">
+       <div class="field-checkbox">
+        <input name="is_superuser" id="is_superuser" type="checkbox"/>
+        <label for="is_superuser">Es superusuario</label>
+      </div>
+    </div>
+     <div class="col-md-12 py-2">
+       <div class="field-checkbox">
+        <input name="is_active" id="is_active" type="checkbox"/>
+         <label for="is_active">Activo</label>
+      </div>
+    </div>
+     <div class="col-md-12 py-2">
+       <div class="field-checkbox">
+        <input name="is_staff" id="is_staff" type="checkbox"/>
+        <label for="is_staff">staff</label>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-12 py-2 justify-content-center">
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn secondary bigger">Guardar</button>
+        </div>
+    </div>
+</form>
+{% if form.errors %}
+        <div style="color: red;">
+            <p>Por favor corrige los errores a continuación:</p>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{field.id}}-{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
