@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-04 12:24-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+#: .\authentication_app\models.py:7
+msgid "Url Dominio"
+msgstr "Url Dominio"
+
+#: .\authentication_app\models.py:8
+msgid "Esquema"
+msgstr "Esquema"
+
+#: .\authentication_app\models.py:10
+msgid "nit"
+msgstr "nit"
+
+#: .\authentication_app\models.py:11
+msgid "Nombre"
+msgstr "Nombre"
+
+#: .\authentication_app\models.py:12
+msgid "Versión prueba"
+msgstr "Versión prueba"
+
+#: .\authentication_app\models.py:13
+msgid "Fecha creación"
+msgstr "Fecha creación"
+
+#: .\authentication_app\models.py:17 .\authentication_app\models.py:25
+msgid "Cliente"
+msgstr "Cliente"
+
+#: .\authentication_app\models.py:18
+msgid "Clientes"
+msgstr "Clientes"
+
+#: .\authentication_app\models.py:26
+msgid "Clave"
+msgstr "Clave"
+
+#: .\authentication_app\models.py:27
+msgid "creada en"
+msgstr "creada en"
+
+#: .\authentication_app\models.py:28
+msgid "Expira en"
+msgstr "Expira en"
+
+#: .\authentication_app\models.py:31
+msgid "Licencia"
+msgstr "Licencia"
+
+#: .\authentication_app\models.py:32
+msgid "Licencias"
+msgstr "Licencias"
+
+#: .\authentication_app\templates\gestion_permissions.html:5
+msgid "permissions"
+msgstr "permisos"
+
+msgid "Can add log entry"
+msgstr "Puede agregar una entrada de registro"
+
+msgid "Can change log entry"
+msgstr "Puede modificar una entrada de registro"
+
+msgid "Can delete log entry"
+msgstr "Puede eliminar una entrada de registro"
+
+msgid "Can view log entry"
+msgstr "Puede ver una entrada de registro"
+
+msgid "Can add permission"
+msgstr "Puede agregar un permiso"
+
+msgid "Can change permission"
+msgstr "Puede modificar un permiso"
+
+msgid "Can delete permission"
+msgstr "Puede eliminar un permiso"
+
+msgid "Can view permission"
+msgstr "Puede ver un permiso"
+
+msgid "Can add group"
+msgstr "Puede agregar un grupo"
+
+msgid "Can change group"
+msgstr "Puede modificar un grupo"
+
+msgid "Can delete group"
+msgstr "Puede eliminar un grupo"
+
+msgid "Can view group"
+msgstr "Puede ver un grupo"
+
+msgid "Can add user"
+msgstr "Puede agregar un usuario"
+
+msgid "Can change user"
+msgstr "Puede modificar un usuario"
+
+msgid "Can delete user"
+msgstr "Puede eliminar un usuario"
+
+msgid "Can view user"
+msgstr "Puede ver un usuario"
+
+msgid "Can add content type"
+msgstr "Puede agregar un tipo de contenido"
+
+msgid "Can change content type"
+msgstr "Puede modificar un tipo de contenido"
+
+msgid "Can delete content type"
+msgstr "Puede eliminar un tipo de contenido"
+
+msgid "Can view content type"
+msgstr "Puede ver un tipo de contenido"
+
+msgid "Can add session"
+msgstr "Puede agregar una sesión"
+
+msgid "Can change session"
+msgstr "Puede modificar una sesión"
+
+msgid "Can delete session"
+msgstr "Puede eliminar una sesión"
+
+msgid "Can view session"
+msgstr "Puede ver una sesión"
+
+msgid "Can add client"
+msgstr "Puede agregar un cliente"
+
+msgid "Can change client"
+msgstr "Puede modificar un cliente"
+
+msgid "Can delete client"
+msgstr "Puede eliminar un cliente"
+
+msgid "Can view client"
+msgstr "Puede ver un cliente"
+
+msgid "Can add license"
+msgstr "Puede agregar una licencia"
+
+msgid "Can change license"
+msgstr "Puede modificar una licencia"
+
+msgid "Can delete license"
+msgstr "Puede eliminar una licencia"
+
+msgid "Can view license"
+msgstr "Puede ver una licencia"

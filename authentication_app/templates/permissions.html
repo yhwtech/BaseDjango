@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Gestionar permisos</h1>
+  <div class="container">
+       <form method="POST">
+       {% csrf_token %}
+           <div class="field-select big-select">
+              <label for="group_selection">Grupo</label>
+              <select id="group_selection" name="group_selected">
+                  {% for group in groups %}
+                    <option value="{{group.id}}">{{group.name}}</option>
+                  {% endfor %}
+              </select>
+           </div>
+
+          <div class="d-flex justify-content-center">
+              <button class="btn secondary" type="submit">Seleccionar grupo</button>
+          </div>
+  </form>
+  </div>
+
+
+{% endblock %}

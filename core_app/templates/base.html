@@ -25,12 +25,6 @@
                 <li>
                     <a href="{% url 'home' %}" class="{% if request|is_active:'' %}active{% endif %}">Inicio</a>
                 </li>
-                 <li>
-                    <a href="#"  class="{% if request|is_active:'monitoring_proa' %}active{% endif %}" >Auditoría</a>
-                </li>
-                <li>
-                    <a href="#"  class="{% if request|is_active:'metrics' %}active{% endif %}" >Metrícas</a>
-                </li>
                 {% if request.user.is_staff %}
                     <li>
                          <a href="{% url 'admin:index' %}" >Admin sitio</a>
@@ -39,7 +33,15 @@
                 {% if request.user.is_superuser %}
                     <li>
                          <a href="{% url 'users' %}"
-                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Usuarios</a>
+                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Clientes
+                         </a>
+                    </li>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                    <li>
+                         <a href="{% url 'permissions' %}"
+                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Permisos
+                         </a>
                     </li>
                 {% endif %}
             </ul>

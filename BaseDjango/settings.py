@@ -15,7 +15,7 @@ from pathlib import Path
 
 env = environ.Env()
 environ.Env.read_env()
-locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
+locale.setlocale(locale.LC_ALL, 'es.UTF-8')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,7 +77,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
 ]
+
 
 ROOT_URLCONF = 'BaseDjango.urls'
 
@@ -141,12 +143,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'es'
+LANGUAGES = [
+    ('es', 'Español'),
+    ('en', 'English'),
+]
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 USE_I18N = True
-
+TIME_ZONE = 'UTC'
 USE_TZ = True
 
 

@@ -1,0 +1,31 @@
+<div class="paginator">
+
+    <div class="d-flex justify-content-center align-items-center row-gap-1">
+         {% if not current_page == 0 %}
+          <div class="btn-paginator">
+            <a href="{{url_page}}?page={{current_page|add:-1}}">Anterior</a>
+          </div>
+        {% endif %}
+          <div class="px-3">
+              {% for p in range %}
+                    <a href="{{url_page}}?page={{p}}" class="number {% if current_page == p %}active{% endif %}">{{p|add:1}}</a>
+              {% endfor %}
+
+          </div>
+
+        {% if not pages|add:-1 in range %}
+             <div>
+                  <em class="fa-solid fa-ellipsis" style="padding-inline: 1rem"></em>
+             </div>
+            <div>
+                  <p>{{pages}}</p>
+            </div>
+        {% endif %}
+          {% if not current_page == pages|add:-1 %}
+              <div class="btn-paginator" style="margin-inline: 1rem">
+                  <a href="{{url_page}}?page={{current_page|add:1}}" >siguiente</a>
+              </div>
+         {% endif %}
+    </div>
+
+</div>

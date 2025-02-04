@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from authentication_app.models import Client
+from authentication_app.models import Client, License
 
-# Register your models here.
 admin.site.register(Client)
+admin.site.register(License)
