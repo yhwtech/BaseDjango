@@ -8,12 +8,13 @@
     <title>ProaSync</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
 </head>
 <body>
     <header class="px-5">
-        <div class="navbar-logo">CamServ</div>
+        <div class="navbar-logo">{{client.name}}</div>
         <div class="bars">
             <div class="line"></div>
             <div class="line"></div>
@@ -25,22 +26,17 @@
                 <li>
                     <a href="{% url 'home' %}" class="{% if request|is_active:'' %}active{% endif %}">Inicio</a>
                 </li>
-                {% if request.user.is_staff %}
-                    <li>
-                         <a href="{% url 'admin:index' %}" >Admin sitio</a>
-                    </li>
-                {% endif %}
                 {% if request.user.is_superuser %}
                     <li>
                          <a href="{% url 'users' %}"
-                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Clientes
+                            class="{% if request|is_active:'users,1' %}active{% endif %}" >Clientes
                          </a>
                     </li>
                 {% endif %}
                 {% if request.user.is_superuser %}
                     <li>
                          <a href="{% url 'permissions' %}"
-                            class="{% if request|is_active:'auth_core' %}active{% endif %}" >Permisos
+                            class="{% if request|is_active:'permissions,1' %}active{% endif %}" >Permisos
                          </a>
                     </li>
                 {% endif %}
@@ -55,14 +51,22 @@
         </div>
              <div id="modal_account" class="modal">
             <div class="modal-content">
-                 <p>Hola, {{ request.user.first_name }}!</p>
+                 <h5 class="mb-3">Hola, {{ request.user.first_name }}!</h5>
+
+
+                {% for group in request.user.groups.all %}
+                    <h6>{{ group.name }}</h6>
+                {% endfor %}
+
                  <P>{{ request.user.email }}</P>
-                 <ul>
-                    {% for group in request.user.groups.all %}
-                        {{ group.name }}
-                    {% endfor %}
-                </ul>
-                <div>
+
+                {% if request.user.is_superuser %}
+                <div class="my-2">
+                    <a href="{% url 'admin:index' %}" >Admin sitio</a>
+                </div>
+                    {% endif %}
+
+                <div class="mt-4">
                     <form action="{% url 'close_session' %}" method="post">
                          {% csrf_token %}
                         <button type="submit" class="btn secondary">Cerrar sesión</button>

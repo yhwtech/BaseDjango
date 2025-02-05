@@ -22,7 +22,6 @@
          font-size:0.8rem;
          color: var(--text-color-gris-4);
          background: white;
-         z-index: 20;
     }
     &.big-select{
          padding: 1rem 1rem;

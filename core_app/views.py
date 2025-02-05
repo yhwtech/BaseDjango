@@ -2,11 +2,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
 from authentication_app.models import Client
 
-
-# Create your views here.
 @login_required
 def base(request):
     return render(request, 'base.html')
@@ -14,7 +11,8 @@ def base(request):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    client = Client.objects.get(domain_url=request.get_host().split(':')[0])
+    return render(request, 'home.html',context={'client':client})
 
 
 @login_required

@@ -26,6 +26,11 @@
                   <a href="{{url_page}}?page={{current_page|add:1}}" >siguiente</a>
               </div>
          {% endif %}
+          {% if records %}
+          <div>
+              <p>total registros {{records}}</p>
+          </div>
+        {% endif %}
     </div>
 
 </div>

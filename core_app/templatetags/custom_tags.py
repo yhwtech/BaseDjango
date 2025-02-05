@@ -8,8 +8,14 @@ register = template.Library()
 
 @register.filter
 def is_active(request, args):
-    index = 0
-    url_parent = args
+    split_args = args.split(',')
+    if len(split_args) == 1:
+        index = 0
+        url_parent = args
+    else:
+        index = int(split_args[1])
+        url_parent = split_args[0]
+
     current_url = request.resolver_match.route
     split_url = current_url.split(sep="/")
     if ',' in args:

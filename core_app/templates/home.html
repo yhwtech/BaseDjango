@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Bienvenido a mi sitio web</h1>
-  <p>Este es el contenido de la página principal.</p>
+<div class="container">
+  <h1>Bienvenid@ {{ request.user.first_name }} {{ request.user.last_name}}</h1>
+</div>
+
 {% endblock %}
 

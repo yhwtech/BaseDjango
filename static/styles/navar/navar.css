@@ -94,6 +94,7 @@
     cursor: pointer;
 }
 .modal{
+    width: 20rem;
     margin: 0.25rem;
     position: absolute;
     background-color: #ffffff;

@@ -34,17 +34,14 @@
             </tr>
         </tfoot>
     </table>
-
 </div>
 <script>
         document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
             const hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
-            hiddenInput.name = 'permissions-change'; // Asegúrate de que este nombre coincida con lo que esperas en Django
+            hiddenInput.name = 'permissions-change';
             hiddenInput.value = `${checkbox.id}-${checkbox.checked}`;
-
-            // Agregar el campo oculto al formulario
             this.form.appendChild(hiddenInput);
                 this.form.submit();
             });
