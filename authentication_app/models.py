@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from tenant_schemas.models import TenantMixin
 from tenant_schemas.postgresql_backend.base import _check_schema_name

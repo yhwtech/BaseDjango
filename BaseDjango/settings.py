@@ -169,7 +169,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    "copyright": "django multitenant",
+    "site_title": "Admin",
+    "site_logo": "img/admin.png",
+    "display_app_version": True,
+    "copyright": "Tecnic core",
     "usermenu_links": [
         {"name": "volver al sitio", "url": "/", "new_window": False, "icon": "fas fa-arrow-left"},
 
@@ -178,7 +181,8 @@ JAZZMIN_SETTINGS = {
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
 
-        "authentication_app.client": "fas fa-pills",
+        "authentication_app.Client": "fas fa-user",
+        "authentication_app.License": "fas fa-key"
     },
 
 }
