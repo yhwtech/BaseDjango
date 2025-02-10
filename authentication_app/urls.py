@@ -10,5 +10,6 @@ urlpatterns = [
     path('users/<str:schema_name>', gestion_user, name='gestion_user'),
     path('permissions', permissions, name='permissions'),
     path('permissions/<str:group_name>', GestionPermissionsView.as_view(), name='gestion_permissions'),
+
 ]
 

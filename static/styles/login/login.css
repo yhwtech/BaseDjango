@@ -368,4 +368,7 @@ form.sign-in-form {
     color:gray;
   }
 }
-
+.link{
+  color: gray;
+  margin-left: 5px;
+}
