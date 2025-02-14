@@ -154,8 +154,10 @@ LOCALE_PATHS = [
 USE_I18N = True
 TIME_ZONE = 'UTC'
 USE_TZ = True
+# Configurar locale
+locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
 
-
+#locale.setlocale(locale.LC_ALL, 'C.UTF-8')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 

@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    ports:
+        - "5432:5432"
+    env_file:
+      - .env.compose
+    environment:
+        POSTGRES_USER: ${DATABASE_USER}
+        POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+        POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  BaseDjango:
+    image: base_django:latest
+    env_file:
+      - .env.compose
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_HOST: host.docker.internal
+      DATABASE_PORT: 5432
+
+volumes:
+  db_data:

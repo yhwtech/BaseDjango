@@ -12,4 +12,3 @@ urlpatterns = [
     path('permissions/<str:group_name>', GestionPermissionsView.as_view(), name='gestion_permissions'),
 
 ]
-

@@ -11,6 +11,7 @@ from django.views import View
 from jazzmin.settings import logger
 from tenant_schemas.utils import schema_context
 from authentication_app.models import Client
+from shared_app.utilities import calc_range_pages
 
 
 # Create your views here.
@@ -140,6 +141,7 @@ class GestionPermissionsView(UserPassesTestMixin, View):
                      columns_name,
                      columns_model,
                      ):
+            self.object_permissions_authorization = None
             self.query = model.objects
             self.current_page = 0
             self.records = 0
@@ -150,24 +152,20 @@ class GestionPermissionsView(UserPassesTestMixin, View):
             self.columns_model = columns_model
             self.items = []
 
-        def calc_range_pages(self):
-            start_range = max(0, self.current_page - 2)
-            end_range = min(start_range + self.size_page, self.pages)
-
-            if end_range - start_range < self.size_page:
-                start_range = max(0, end_range - self.size_page)
-
-            self.range = range(start_range, end_range)
-
         def change_page(self, request, next_page=0,group_id=None):
             tenant_schema = request.tenant.schema_name
             self.current_page = int(next_page)
             with connection.schema_editor(tenant_schema):
                 self.records = self.query.count()
                 self.pages = (self.records - 1) // self.size_page + 1
-                self.calc_range_pages()
+
+                self.range = calc_range_pages(
+                    current_page=self.current_page,
+                    size_page=self.size_page,
+                    pages=self.pages)
+
                 self.build_object_permission(group_id)
-                self.items = self.object_permissions_autorization
+                self.items = self.object_permissions_authorization
 
         def get_permissions(self):
             start_index = self.current_page * self.size_page
@@ -178,13 +176,13 @@ class GestionPermissionsView(UserPassesTestMixin, View):
             with schema_context('public'):
                 group = Group.objects.get(name=group_name)
                 permissions_group = Permission.objects.filter(group=group)
-                self.object_permissions_autorization = []
+                self.object_permissions_authorization = []
                 for permission in self.get_permissions():
                     if permission.id in [permission.id for permission in permissions_group]:
                         authorized = True
                     else:
                         authorized = False
-                    self.object_permissions_autorization.append(
+                    self.object_permissions_authorization.append(
                         {"permission": permission, "authorized": authorized})
 
     def get_context(self, request, group_name):
