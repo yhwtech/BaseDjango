@@ -1,10 +1,14 @@
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.views import PasswordResetView
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
+from django.template.loader import get_template, render_to_string
 from django.urls import reverse
 from django.db import connection, transaction
 from django.views import View
@@ -222,4 +226,20 @@ class GestionPermissionsView(UserPassesTestMixin, View):
 
         return render(request=request, template_name= self.template_name, context=context.__dict__)
 
+def send_mail(subject_template_name,
+              context, from_email, to_email, html_email_template_name):
+    subject = render_to_string(subject_template_name, context)
+    subject = ''.join(subject.splitlines())
+    template = get_template(html_email_template_name)
+    content = template.render(context)
+    email = EmailMultiAlternatives(
+    subject=subject,
+    from_email=from_email,
+    to=to_email,
+    )
+    email.attach_alternative(content, 'text/html')
+    email.send()
+
+class CustomPasswordResetView(PasswordResetView):
+    html_email_template_name ="registration/password_reset_email.html"
 

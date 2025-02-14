@@ -28,6 +28,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/authentication/login'
 # Quick-strt development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
