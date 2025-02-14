@@ -173,7 +173,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
     "site_title": "Admin",
-    "site_logo": "img/admin.png",
+    "site_logo": "img/admin.jpg",
     "display_app_version": True,
     "copyright": "Tecnic core",
     "usermenu_links": [
